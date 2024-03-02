@@ -49,3 +49,6 @@ This project is licensed under the MIT License. See the LICENSE file for more in
 
 ## Contact
 For any inquiries or support, please contact divyanaidu2096@gmail.com.
+
+# Academic Requirement
+A detailed project report and a video presentation are uploaded for reference in the Google Drive Link: https://drive.google.com/drive/folders/197fL1vGCgKk1cL_XRWD6jzu3cdXwVigs
