@@ -557,14 +557,50 @@ def getReport(report, subjectReport):
                     subjectReport[subject][0] += 1
 
 
+def getTimePrint(time):
+    return "{} Hrs {} Mins".format(time[0], time[1])
+
+
+def printReportTopics(sessionReport):
+    Topics = list(sessionReport.keys())
+    if not len(Topics):
+        print("Time Spent on Study Sessions = 0 Hrs 0 Minutes\n\n")
+        return
+    maxNameLength = 12
+    for topic in Topics:
+        if topic == "Tasks":
+            continue
+        maxNameLength = max(maxNameLength, len(topic.name))
+    equalToString = "=" * (maxNameLength + 25)
+    underscoreString = "-" * (maxNameLength + 25)
+    print(equalToString)
+    print("S.No | {:<{}} | {:<{}}".format("Topic Name", maxNameLength,
+                                          "Time Spent", 15))
+    print(equalToString)
+    for i in range(len(Topics) - 1):
+        topic = Topics[i]
+        if topic == "Tasks":
+            continue
+        duration = sessionReport[topic]
+        print("{:<{}} | {:<{}} | {:<{}}".format(i + 1, 4,
+                                                topic.name, maxNameLength,
+                                                getTimePrint(duration), 15))
+        print(underscoreString)
+    topic = Topics[-1]
+    if topic != "Tasks":
+        duration = sessionReport[topic]
+        print("{:<{}} | {:<{}} | {:<{}}".format(len(Topics), 4,
+                                                topic.name, maxNameLength,
+                                                getTimePrint(duration), 15))
+    print(equalToString, end='\n\n')
+
+
 def printReport(report, subjectReport):
     for subject in report:
-        print("Total Time spent on subject {} = {}".format(subject, subjectReport[subject]))
+        print("Total Time spent on subject {} = {}".format(subject.name, getTimePrint(subjectReport[subject])))
         sessionReport = report[subject]
-        print("Total Time spent on doing Task = {}".format(sessionReport["Tasks"]))
-        for topic in sessionReport:
-            if topic != "Tasks":
-                print(topic, sessionReport[topic])
+        print("Total Time spent on doing Task = {}".format(getTimePrint(sessionReport["Tasks"])))
+        printReportTopics(sessionReport)
 
 
 def reports_function():
