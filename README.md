@@ -7,7 +7,7 @@ Study Buddy is a command-line application designed to assist students in organiz
 - Managing Subjects and Topics
   - Study Buddy enables users to manage subjects and topics, making it easy to organize study materials and resources.
 - Creating and Tracking Tasks
-  - Users can create tasks with due dates, specify recurring tasks, mark tasks as completed, and receive notifications for approaching deadlines.
+  - Users can create tasks with due dates, mark tasks as completed, or delete them.
 - Generating Weekly Study Reports
   - Study Buddy generates weekly study reports summarizing planned versus actual study hours, subject-wise study hours, and task deadline status.
 - User-Friendly Interface
